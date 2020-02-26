@@ -1,0 +1,17 @@
+version: '3.3'
+
+services:
+  app:
+    image: ${IMAGE:-product-configurations:latest}
+    links:
+      - mongo
+    environment:
+      - MONGO_ENABLED=true
+      - MONGO_SERVICE_URI=mongodb://mongo:27017/product_configurations
+      - MONGO_COLLECTION_CONFIGURATIONS=product_configurations
+      - MONGO_COLLECTION_OPTIONS=product_configuration_options
+    ports:
+      - "8080:8080"
+
+  mongo:
+    image: mongo:latest

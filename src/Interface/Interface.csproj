@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>EIC.Customers.Interface</AssemblyName>
+    <RootNamespace>EIC.Customers</RootNamespace>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>Denis Kuznetsov</Authors>
+    <Product>EIC.Customers</Product>
+    <Description>Customers microservice client</Description>
+    <PackageTags>customers microservice</PackageTags>
+    <Version>1.0.0</Version>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="PipServices3.Commons" Version="3.0.17" />
+  </ItemGroup>
+
+</Project>
