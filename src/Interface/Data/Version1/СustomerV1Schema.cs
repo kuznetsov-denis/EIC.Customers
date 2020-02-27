@@ -15,6 +15,7 @@ namespace EIC.Customers.Data.Version1
 			this.WithRequiredProperty("birthdate", TypeCode.DateTime);
 			this.WithRequiredProperty("itin", TypeCode.String);
 			this.WithRequiredProperty("passport", TypeCode.String);
+			this.WithRequiredProperty("mobile_phone", TypeCode.String);
 		}
 	}
 }

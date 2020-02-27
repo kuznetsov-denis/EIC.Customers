@@ -73,9 +73,6 @@ namespace EIC.Customers.Persistence
 		
 		public async Task<CustomerV1> CreateAsync(string correlationId, CustomerV1 customer)
 		{
-			customer.Id = customer.Id ?? IdGenerator.NextLong();
-			customer.Gender = customer.Gender ?? CustomerGenderV1.Unknown;
-
 			var result = await CreateAsync(correlationId, FromPublic(customer));
 
 			return ToPublic(result);
@@ -83,8 +80,6 @@ namespace EIC.Customers.Persistence
 
 		public async Task<CustomerV1> UpdateAsync(string correlationId, CustomerV1 customer)
 		{
-			customer.Gender = customer.Gender ?? CustomerGenderV1.Unknown;
-
 			var result = await UpdateAsync(correlationId, FromPublic(customer));
 
 			return ToPublic(result);

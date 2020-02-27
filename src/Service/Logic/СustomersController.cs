@@ -37,11 +37,16 @@ namespace EIC.Customers.Logic
 
 		public async Task<CustomerV1> CreateCustomerAsync(string correlationId, CustomerV1 customer)
 		{
+			customer.Id = customer.Id ?? IdGenerator.NextLong();
+			customer.Gender = customer.Gender ?? CustomerGenderV1.Unknown;
+
 			return await _persistence.CreateAsync(correlationId, customer);
 		}
 
 		public async Task<CustomerV1> UpdateCustomerAsync(string correlationId, CustomerV1 customer)
 		{
+			customer.Gender = customer.Gender ?? CustomerGenderV1.Unknown;
+
 			return await _persistence.UpdateAsync(correlationId, customer);
 		}
 
