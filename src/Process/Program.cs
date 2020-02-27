@@ -2,7 +2,7 @@ using System;
 
 using EIC.Customers.Container;
 
-namespace EIC.Customers.Process
+namespace Process
 {
 	class Program
 	{

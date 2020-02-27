@@ -27,7 +27,7 @@ try {
 
     Start-Sleep -Seconds 10
     Invoke-WebRequest -Uri http://$($dockerMachineHost):8080/heartbeat
-    Invoke-WebRequest -Uri http://$($dockerMachineHost):8080/v1/beacons/get_beacons -Method Post
+    Invoke-WebRequest -Uri http://$($dockerMachineHost):8080/v1/customers/get_customers -Method Post
 
     Write-Host "The container was successfully built."
 } finally {

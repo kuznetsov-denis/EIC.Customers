@@ -11,9 +11,8 @@ services:
       - mongo
     environment:
       - MONGO_ENABLED=true
-      - MONGO_SERVICE_URI=mongodb://mongo:27017/product_configurations
-      - MONGO_COLLECTION_CONFIGURATIONS=product_configurations
-      - MONGO_COLLECTION_OPTIONS=product_configuration_options
+      - MONGO_SERVICE_URI=mongodb://mongo:27017/customers
+      - MONGO_COLLECTION=customers
 
   mongo:
     image: mongo:latest
