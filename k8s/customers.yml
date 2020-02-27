@@ -1,0 +1,47 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+ name: eic-customers
+ labels:
+   app: eic-customers
+spec:
+ type: NodePort
+ ports:
+ - port: 8080
+   nodePort: 32728
+   protocol: TCP
+ selector:
+   app: eic-customers
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: eic-customers-deploy
+spec:
+  replicas: 1
+  minReadySeconds: 5
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  template:
+    metadata:
+      labels:
+        app: eic-customers
+    spec: 
+      containers:
+      - name: eic-customers-pod
+        image: deniskuzn/eic-customers:1.0.0-1-rc
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 8080
+        env:
+        - name: ENVIRONMENT
+          valueFrom:
+            configMapKeyRef:
+              name: config
+              key: environment
+        - name: MONGO_ENABLED
+          value: "true"
